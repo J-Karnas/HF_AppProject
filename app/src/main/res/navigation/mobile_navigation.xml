@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="pl.example.myapplication.ui.wydatki.WydatkiFragment"
+        android:label="@string/title_wydatki"
+        tools:layout="@layout/fragment_wydatki" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="pl.example.myapplication.ui.przychod.PrzychodFragment"
+        android:label="@string/title_przychod"
+        tools:layout="@layout/fragment_przychod" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="pl.example.myapplication.ui.statystyki.StatystykiFragment"
+        android:label="@string/title_statystyki"
+        tools:layout="@layout/fragment_statystyki" />
+</navigation>

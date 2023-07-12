@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/pay"
+        android:title="@string/title_wydatki" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/cash"
+        android:title="@string/title_przychod" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/stats"
+        android:title="@string/title_statystyki" />
+
+</menu>
