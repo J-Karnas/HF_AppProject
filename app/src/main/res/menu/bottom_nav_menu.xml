@@ -2,18 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_wydatki"
         android:icon="@drawable/pay"
         android:title="@string/title_wydatki" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_przychod"
         android:icon="@drawable/cash"
         android:title="@string/title_przychod" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_statystyki"
         android:icon="@drawable/stats"
         android:title="@string/title_statystyki" />
 
+    <item
+        android:id="@+id/navigation_raport"
+        android:icon="@drawable/report"
+        android:title="Historia" />
 </menu>
