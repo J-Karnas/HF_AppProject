@@ -28,7 +28,8 @@
             android:minHeight="56dp"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:inputType="numberDecimal"/>
 
         <EditText
             android:id="@+id/textField2"
