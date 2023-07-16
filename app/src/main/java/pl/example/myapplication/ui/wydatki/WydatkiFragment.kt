@@ -124,7 +124,7 @@ class CustomDialogFragment : DialogFragment() {
 
     private fun addDane(kwota: Double, date: String, notatka: String, kategoria: Int) {
         val daneValues = ContentValues()
-        daneValues.put("kwota", kwota)
+        daneValues.put("kwota", kwota*(-1))
         daneValues.put("data_time", date)
         daneValues.put("notatka", notatka)
         daneValues.put("id_kategoria", kategoria)
@@ -138,13 +138,13 @@ class CustomDialogFragment : DialogFragment() {
         val button = dialogView.findViewById<Button>(R.id.confirmButton)
         val textField1 = dialogView.findViewById<EditText>(R.id.textField1)
         val textField2 = dialogView.findViewById<EditText>(R.id.textField2)
-        val textView = dialogView.findViewById<TextView>(R.id.dialogTextView)
+        val textView = dialogView.findViewById<TextView>(R.id.errror)
 
         val args = arguments
         val buttonId = args?.getInt("buttonId") ?: -1
         val buttonName = args?.getString("name")
 
-        textView.text = "$buttonName"
+//        textView.text = "$buttonName"
 
         button.setOnClickListener {
             databaseHelper = DatabaseHelper(requireContext())
@@ -154,11 +154,14 @@ class CustomDialogFragment : DialogFragment() {
                 val kwota: Double = amount.toDouble()
                 val note = textField2.text.toString()
                 val currentDate = Date()
-                val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+                val dateFormat = SimpleDateFormat("YYYY-MM-dd", Locale.getDefault())
                 addDane(kwota, dateFormat.format(currentDate), note, buttonId)
                 dismiss()
             }
-            //tutaj trzeba zrobić wyskakującego textView z info o braku wartości
+            else{
+                textView.text = "wpisz coś ziomek"
+            }
+
         }
 
         builder.setView(dialogView)

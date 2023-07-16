@@ -32,7 +32,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "homefinances
                 "(8, 'rozrywka')," +
                 "(9, 'technologia')," +
                 "(10, 'inne')," +
-                "(11, 'uncat')"
+                "(11, 'przychód')"
         db?.execSQL(insertKategoria)
     }
 

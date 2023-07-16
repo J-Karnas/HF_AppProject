@@ -42,6 +42,11 @@
             android:paddingEnd="15dp"
             android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/errror"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <Button
             android:id="@+id/confirmButton"
             android:layout_width="wrap_content"

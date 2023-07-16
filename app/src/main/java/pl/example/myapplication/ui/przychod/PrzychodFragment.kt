@@ -1,13 +1,12 @@
 package pl.example.myapplication.ui.przychod
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.ContentValues
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.ConsoleMessage
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TableLayout
 import android.widget.TableRow
@@ -18,7 +17,6 @@ import pl.example.myapplication.R
 import pl.example.myapplication.databinding.FragmentPrzychodBinding
 import java.text.SimpleDateFormat
 import java.util.ArrayList
-import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
@@ -38,6 +36,7 @@ class PrzychodFragment : Fragment() {
 
         binding.btnPrzychod.setOnClickListener {
             handleButtonPrzychodClick()
+            przychodLista()
         }
 
         przychodLista()
@@ -45,9 +44,11 @@ class PrzychodFragment : Fragment() {
         return binding.root
     }
 
+
     private fun handleButtonPrzychodClick() {
         databaseHelper = DatabaseHelper(requireContext())
 
+        val textView2 = binding.errorrr2
         val textFieldKwota = binding.inputKwota
         val textFieldNotka = binding.inputNotka
 
@@ -57,7 +58,7 @@ class PrzychodFragment : Fragment() {
         if (kwotaText.isNotEmpty()) {
             val kwota: Double = kwotaText.toDouble()
             val currentDate = Date()
-            val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+            val dateFormat = SimpleDateFormat("YYYY-MM-dd", Locale.getDefault())
             val daneValues = ContentValues()
             daneValues.put("kwota", kwota)
             daneValues.put("data_time", dateFormat.format(currentDate))
@@ -68,13 +69,18 @@ class PrzychodFragment : Fragment() {
             textFieldKwota.text.clear()
             textFieldNotka.text.clear()
         }
+        else
+        {
+            textView2?.text = "wpisz coś ziomek"
+        }
+
 
     }
 
     private fun przychodLista() {
         val tableLayout: TableLayout = binding.tabelaWplaty
         val records = displayListPrzychod()
-
+        tableLayout.removeAllViews()
         for (record in records) {
             val row = TableRow(requireContext())
             val layoutParams = TableRow.LayoutParams(
@@ -99,7 +105,7 @@ class PrzychodFragment : Fragment() {
     fun displayListPrzychod(): List<String> {
         val recordsList = ArrayList<String>()
         val db = databaseHelper.readableDatabase
-        val selectQuery = "SELECT kwota, data_time, notatka FROM dane WHERE id_kategoria=11"
+        val selectQuery = "SELECT kwota, data_time, notatka FROM dane WHERE id_kategoria=11 ORDER BY id_dane DESC LIMIT 5"
         val cursor = db.rawQuery(selectQuery, null)
         if (cursor.moveToFirst()) {
             do {

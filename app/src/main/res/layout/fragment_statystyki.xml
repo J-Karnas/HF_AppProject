@@ -27,11 +27,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Statystyki" />
 
+    <Spinner
+        android:id="@+id/spinnerStatystyki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="4dp"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabelaStatystyki"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OpisStatystyki" />
+
+    <Button
+        android:id="@+id/btnPotwierdz1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Potwierdź"
+        app:layout_constraintBottom_toTopOf="@+id/tabelaStatystyki"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toEndOf="@+id/spinnerStatystyki"
+        app:layout_constraintTop_toBottomOf="@+id/OpisStatystyki" />
+
     <TableLayout
         android:id="@+id/tabelaStatystyki"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

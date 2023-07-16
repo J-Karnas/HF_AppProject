@@ -5,4 +5,30 @@
     <string name="title_statystyki">Statystyki</string>
     <string name="title_raport">Raport</string>
 
+    <string-array name="kategorie_array">
+        <item>Żywność</item>
+        <item>mieszkanie</item>
+        <item>transport</item>
+        <item>odzież</item>
+        <item>prezenty</item>
+        <item>rozwój</item>
+        <item>zdrowie</item>
+        <item>rozrywka</item>
+        <item>technologia</item>
+        <item>inne</item>
+        <item>przychód</item>
+    </string-array>
+
+    <string-array name="mode_array">
+        <item>wszystko</item>
+        <item>mieszkanie</item>
+        <item>transport</item>
+    </string-array>
+
+    <string-array name="statystyki_miesiac">
+        <item>1</item>
+        <item>3</item>
+        <item>6</item>
+    </string-array>
+
 </resources>
