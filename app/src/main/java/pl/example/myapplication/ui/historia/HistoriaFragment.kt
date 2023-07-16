@@ -4,17 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.TableLayout
-import android.widget.TableRow
-import android.widget.TextView
-import androidx.core.content.ContextCompat
+import android.widget.*
 import androidx.fragment.app.Fragment
 import pl.example.myapplication.DatabaseHelper
 import pl.example.myapplication.R
 import pl.example.myapplication.databinding.FragmentHistoriaBinding
-import java.util.ArrayList
 
 class HistoriaFragment : Fragment() {
     private lateinit var databaseHelper: DatabaseHelper
@@ -33,7 +27,11 @@ class HistoriaFragment : Fragment() {
 
         val spinnerKategoria = binding.spinnerKategoria
         val addButton: Button = binding.btnPotwierdz
-        val adapter = ArrayAdapter.createFromResource(requireContext(), R.array.kategorie_array, android.R.layout.simple_spinner_item)
+        val adapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.kategorie_array,
+            android.R.layout.simple_spinner_item
+        )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerKategoria.adapter = adapter
 
@@ -86,7 +84,8 @@ class HistoriaFragment : Fragment() {
     fun displayListaHistoria(kategoria1: String, mode1: String): List<String> {
         val recordsList = ArrayList<String>()
         val db = databaseHelper.readableDatabase
-        var selectQuery = "SELECT dane.kwota, dane.data_time, dane.notatka FROM dane INNER JOIN kategoria ON dane.id_kategoria=kategoria.id_kategoria  WHERE kategoria.nazwa_kat= '$kategoria1' ORDER BY id_dane DESC LIMIT 30"
+        var selectQuery =
+            "SELECT dane.kwota, dane.data_time, dane.notatka FROM dane INNER JOIN kategoria ON dane.id_kategoria=kategoria.id_kategoria  WHERE kategoria.nazwa_kat= '$kategoria1' ORDER BY id_dane DESC LIMIT 30"
 //        val selectQuery2 = "SELECT dane.kwota, dane.data_time, dane.notatka FROM dane INNER JOIN kategoria ON dane.id_kategoria=kategoria.id_kategoria  WHERE dane.id_kategoria != 11 LIMIT 30"
 //        val selectQuery3 = "SELECT dane.kwota, dane.data_time, dane.notatka FROM dane INNER JOIN kategoria ON dane.id_kategoria=kategoria.id_kategoria LIMIT 30"
 //        when(mode1){

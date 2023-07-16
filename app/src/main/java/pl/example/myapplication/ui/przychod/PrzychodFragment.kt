@@ -1,24 +1,18 @@
 package pl.example.myapplication.ui.przychod
 
-import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.ContentValues
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import pl.example.myapplication.DatabaseHelper
-import pl.example.myapplication.R
 import pl.example.myapplication.databinding.FragmentPrzychodBinding
 import java.text.SimpleDateFormat
-import java.util.ArrayList
-import java.util.Date
-import java.util.Locale
+import java.util.*
 
 class PrzychodFragment : Fragment() {
     private lateinit var databaseHelper: DatabaseHelper
@@ -68,9 +62,7 @@ class PrzychodFragment : Fragment() {
 
             textFieldKwota.text.clear()
             textFieldNotka.text.clear()
-        }
-        else
-        {
+        } else {
             textView2?.text = "wpisz coś ziomek"
         }
 
@@ -93,7 +85,7 @@ class PrzychodFragment : Fragment() {
             for (column in columns) {
                 val textView = TextView(requireContext())
                 textView.text = column
-                textView.setPadding(8, 8, 250, 8)
+                textView.setPadding(10, 10, 200, 10)
                 textView.textSize = 17f
                 row.addView(textView)
             }
@@ -105,7 +97,8 @@ class PrzychodFragment : Fragment() {
     fun displayListPrzychod(): List<String> {
         val recordsList = ArrayList<String>()
         val db = databaseHelper.readableDatabase
-        val selectQuery = "SELECT kwota, data_time, notatka FROM dane WHERE id_kategoria=11 ORDER BY id_dane DESC LIMIT 5"
+        val selectQuery =
+            "SELECT kwota, data_time, notatka FROM dane WHERE id_kategoria=11 ORDER BY id_dane DESC LIMIT 5"
         val cursor = db.rawQuery(selectQuery, null)
         if (cursor.moveToFirst()) {
             do {

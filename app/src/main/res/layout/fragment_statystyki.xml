@@ -1,95 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.statystyki.StatystykiFragment">
+    android:layout_marginBottom="50dp"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/Statystyki"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Statystyki"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/OpisStatystyki"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aktualny miesiąc:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Statystyki" />
-
-    <Spinner
-        android:id="@+id/spinnerStatystyki"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="4dp"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/tabelaStatystyki"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OpisStatystyki" />
-
-    <Button
-        android:id="@+id/btnPotwierdz1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Potwierdź"
-        app:layout_constraintBottom_toTopOf="@+id/tabelaStatystyki"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
-        app:layout_constraintStart_toEndOf="@+id/spinnerStatystyki"
-        app:layout_constraintTop_toBottomOf="@+id/OpisStatystyki" />
-
-    <TableLayout
-        android:id="@+id/tabelaStatystyki"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OpisStatystyki">
+        tools:context=".ui.statystyki.StatystykiFragment">
 
-        <TableRow
+        <TextView
+            android:id="@+id/Statystyki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Statystyki"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/OpisStatystyki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wybierz ile miesięcy w tył"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Statystyki" />
+
+        <Spinner
+            android:id="@+id/spinnerStatystyki"
+            android:layout_width="70dp"
+            android:layout_height="55dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/tabelaStatystyki"
+            app:layout_constraintStart_toStartOf="@+id/OpisStatystyki"
+            app:layout_constraintTop_toBottomOf="@+id/OpisStatystyki" />
+
+        <Button
+            android:id="@+id/btnPotwierdz1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Potwierdź"
+            app:layout_constraintBottom_toTopOf="@+id/tabelaStatystyki"
+            app:layout_constraintEnd_toEndOf="@+id/OpisStatystyki"
+            app:layout_constraintTop_toBottomOf="@+id/OpisStatystyki" />
+
+        <TableLayout
+            android:id="@+id/tabelaStatystyki"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:layout_marginTop="100dp"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/OpisStatystyki">
 
-            <TextView
-                android:layout_width="143dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="5dp"
-                android:text="Kategoria"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                tools:ignore="RtlCompat" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="129dp"
-                android:layout_height="match_parent"
-                android:padding="5dp"
-                android:text="Kwota sumarycznie"
-                android:textAlignment="center"
-                android:textSize="18sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Kategoria"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:layout_width="139dp"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Procent\n wydatków"
-                android:textAlignment="center"
-                android:textSize="18sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Kwota\n sumarycznie"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
-        </TableRow>
-    </TableLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Procent\n wydatków"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+            </TableRow>
+        </TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

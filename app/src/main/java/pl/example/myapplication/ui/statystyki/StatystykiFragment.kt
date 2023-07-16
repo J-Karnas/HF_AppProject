@@ -4,16 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.TableLayout
-import android.widget.TableRow
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import pl.example.myapplication.DatabaseHelper
 import pl.example.myapplication.R
 import pl.example.myapplication.databinding.FragmentStatystykiBinding
-import java.util.ArrayList
 
 class StatystykiFragment : Fragment() {
     private lateinit var databaseHelper: DatabaseHelper
@@ -30,7 +25,11 @@ class StatystykiFragment : Fragment() {
         _binding = FragmentStatystykiBinding.inflate(inflater, container, false)
         val spinnerStatystyki = binding.spinnerStatystyki
         val addButton: Button = binding.btnPotwierdz1
-        val adapter = ArrayAdapter.createFromResource(requireContext(), R.array.statystyki_miesiac, android.R.layout.simple_spinner_item)
+        val adapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.statystyki_miesiac,
+            android.R.layout.simple_spinner_item
+        )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerStatystyki.adapter = adapter
 
@@ -72,7 +71,8 @@ class StatystykiFragment : Fragment() {
     fun displayListaStatystyki(mies1: String): List<String> {
         val recordsList = ArrayList<String>()
         val db = databaseHelper.readableDatabase
-        val selectQuery = "SELECT SUM(kwota) AS suma_kwota, round((-SUM(kwota)*100)/(SELECT SUM(kwota)*(-1) AS suma_koszt   FROM dane WHERE dane.data_time BETWEEN date('now', '-$mies1 month') AND date('now') AND id_kategoria != 11), 2) as procent, nazwa_kat FROM (SELECT dane.kwota, kategoria.nazwa_kat FROM dane INNER JOIN kategoria ON dane.id_kategoria=kategoria.id_kategoria WHERE dane.data_time BETWEEN date('now', '-$mies1 month') AND date('now') AND dane.id_kategoria != 11) AS test GROUP BY nazwa_kat"
+        val selectQuery =
+            "SELECT SUM(kwota) AS suma_kwota, round((-SUM(kwota)*100)/(SELECT SUM(kwota)*(-1) AS suma_koszt   FROM dane WHERE dane.data_time BETWEEN date('now', '-$mies1 month') AND date('now') AND id_kategoria != 11), 2) as procent, nazwa_kat FROM (SELECT dane.kwota, kategoria.nazwa_kat FROM dane INNER JOIN kategoria ON dane.id_kategoria=kategoria.id_kategoria WHERE dane.data_time BETWEEN date('now', '-$mies1 month') AND date('now') AND dane.id_kategoria != 11) AS test GROUP BY nazwa_kat"
         val cursor = db.rawQuery(selectQuery, null)
         if (cursor.moveToFirst()) {
             do {
