@@ -23,8 +23,42 @@ class UstawieniaFragment : Fragment() {
         databaseHelper = DatabaseHelper(requireContext())
         _binding = FragmentUstawieniaBinding.inflate(inflater, container, false)
 
+        binding.btnUsunWydatek.setOnClickListener {
+            usunWydatek()
+        }
 
+        binding.btnUsunPrzychod.setOnClickListener {
+            usunPrzychod()
+        }
+
+        binding.btnWyczyscBaze.setOnClickListener {
+            usunDane()
+        }
         return binding.root
+    }
+
+    private fun usunWydatek(){
+        val db = databaseHelper.writableDatabase
+
+        val query = "DELETE FROM dane WHERE id_dane = (SELECT max(id_dane) FROM dane)"
+        db.execSQL(query)
+
+    }
+
+    private fun usunPrzychod(){
+        val db = databaseHelper.writableDatabase
+
+        val query = "DELETE FROM dane WHERE id_dane = (SELECT max(id_dane) FROM dane WHERE id_kategoria = 11)"
+        db.execSQL(query)
+
+    }
+
+    private fun usunDane(){
+        val db = databaseHelper.writableDatabase
+
+        val query = "DELETE FROM dane"
+        db.execSQL(query)
+
     }
 
 
