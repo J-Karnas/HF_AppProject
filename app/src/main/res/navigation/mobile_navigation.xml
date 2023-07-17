@@ -28,4 +28,10 @@
         android:name="pl.example.myapplication.ui.historia.HistoriaFragment"
         android:label="@string/title_raport"
         tools:layout="@layout/fragment_historia" />
+
+    <fragment
+        android:id="@+id/navigation_ustawienia"
+        android:name="pl.example.myapplication.ui.ustawienia.UstawieniaFragment"
+        android:label="Ustawienia"
+        tools:layout="@layout/fragment_ustawienia" />
 </navigation>

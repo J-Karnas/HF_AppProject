@@ -20,7 +20,7 @@ import pl.example.myapplication.databinding.FragmentWydatkiBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class WydatkiFragment : Fragment(), CustomDialogFragment.DialogListener{
+class WydatkiFragment : Fragment(), CustomDialogFragment.DialogListener {
 
     private var _binding: FragmentWydatkiBinding? = null
     private val binding get() = _binding!!

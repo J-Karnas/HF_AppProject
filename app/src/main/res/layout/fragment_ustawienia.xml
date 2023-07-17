@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="50dp"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.ustawenia.UstawieniaFragment">
+
+        <TextView
+            android:id="@+id/Ustawienia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Ustawienia"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/usunWydatek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Usuń ostatni dodany wydatek"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ustawienia" />
+
+        <Button
+            android:id="@+id/btnUsunWydatek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Usuń"
+            app:layout_constraintEnd_toEndOf="@+id/usunWydatek"
+            app:layout_constraintStart_toStartOf="@+id/usunWydatek"
+            app:layout_constraintTop_toBottomOf="@+id/usunWydatek" />
+
+        <TextView
+            android:id="@+id/usunPrzychod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Usuń ostatni dodany przychód"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnUsunWydatek" />
+
+        <Button
+            android:id="@+id/btnUsunPrzychod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Usuń"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usunPrzychod" />
+
+        <TextView
+            android:id="@+id/wyczyscBaze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Wyczyść bazę danych"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnUsunPrzychod" />
+
+        <Button
+            android:id="@+id/btnWyczyscBaze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Usuń"
+            app:layout_constraintEnd_toEndOf="@+id/wyczyscBaze"
+            app:layout_constraintStart_toStartOf="@+id/wyczyscBaze"
+            app:layout_constraintTop_toBottomOf="@+id/wyczyscBaze" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

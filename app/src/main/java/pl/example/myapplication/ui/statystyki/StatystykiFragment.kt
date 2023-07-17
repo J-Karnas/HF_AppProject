@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.view.marginStart
 import androidx.fragment.app.Fragment
 import pl.example.myapplication.DatabaseHelper
 import pl.example.myapplication.R
@@ -35,7 +34,7 @@ class StatystykiFragment : Fragment() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerStatystyki.adapter = adapter
 
-        spinnerStatystyki.setPadding(10,10, 10, 10)
+        spinnerStatystyki.setPadding(10, 10, 10, 10)
 
         statystykiLista("1")
         addButton.setOnClickListener {

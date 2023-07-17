@@ -20,4 +20,9 @@
         android:id="@+id/navigation_raport"
         android:icon="@drawable/history"
         android:title="Historia" />
+
+    <item
+        android:id="@+id/navigation_ustawienia"
+        android:icon="@drawable/settings"
+        android:title="Ustawienia" />
 </menu>
