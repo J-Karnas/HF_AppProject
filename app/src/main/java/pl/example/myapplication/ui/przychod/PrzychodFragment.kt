@@ -62,6 +62,7 @@ class PrzychodFragment : Fragment() {
 
             textFieldKwota.text.clear()
             textFieldNotka.text.clear()
+            textView2.text = ""
         } else {
             textView2.text = "Wymagane jest podanie kwoty!"
         }
