@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/tabelaraport"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
             app:layout_constraintStart_toStartOf="@+id/OpisHistroia"
             app:layout_constraintTop_toBottomOf="@+id/OpisHistroia" />
 
@@ -48,12 +48,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Potwierdź"
-            app:layout_constraintBottom_toTopOf="@+id/tabelaraport"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
             app:layout_constraintEnd_toEndOf="@+id/OpisHistroia"
             app:layout_constraintTop_toBottomOf="@+id/OpisHistroia" />
 
+
         <TableLayout
-            android:id="@+id/tabelaraport"
+            android:id="@+id/tableLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -63,7 +64,6 @@
             app:layout_constraintTop_toBottomOf="@+id/OpisHistroia">
 
             <TableRow
-                android:id="@+id/tableRow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -72,7 +72,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="Historia"
+                    android:text="Kwota"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 
@@ -95,6 +95,22 @@
                     android:textSize="18sp" />
 
             </TableRow>
+        </TableLayout>
+
+
+        <TableLayout
+            android:id="@+id/tabelaraport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout2">
+
+            <TableRow
+                android:id="@+id/tableRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </TableLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

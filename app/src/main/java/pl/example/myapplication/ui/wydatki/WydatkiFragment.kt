@@ -17,8 +17,7 @@ import pl.example.myapplication.DatabaseHelper
 import pl.example.myapplication.R
 import pl.example.myapplication.databinding.FragmentWydatkiBinding
 import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
+import java.util.*
 
 class WydatkiFragment : Fragment() {
 
@@ -124,12 +123,13 @@ class CustomDialogFragment : DialogFragment() {
 
     private fun addDane(kwota: Double, date: String, notatka: String, kategoria: Int) {
         val daneValues = ContentValues()
-        daneValues.put("kwota", kwota*(-1))
+        daneValues.put("kwota", kwota * (-1))
         daneValues.put("data_time", date)
         daneValues.put("notatka", notatka)
         daneValues.put("id_kategoria", kategoria)
         databaseHelper.writableDatabase.insert("dane", null, daneValues)
     }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireActivity())
         val inflater = LayoutInflater.from(requireActivity())
@@ -142,9 +142,6 @@ class CustomDialogFragment : DialogFragment() {
 
         val args = arguments
         val buttonId = args?.getInt("buttonId") ?: -1
-        val buttonName = args?.getString("name")
-
-//        textView.text = "$buttonName"
 
         button.setOnClickListener {
             databaseHelper = DatabaseHelper(requireContext())
@@ -157,9 +154,8 @@ class CustomDialogFragment : DialogFragment() {
                 val dateFormat = SimpleDateFormat("YYYY-MM-dd", Locale.getDefault())
                 addDane(kwota, dateFormat.format(currentDate), note, buttonId)
                 dismiss()
-            }
-            else{
-                textView.text = "wpisz coś ziomek"
+            } else {
+                textView.text = "Wymagane jest podanie kwoty!"
             }
 
         }

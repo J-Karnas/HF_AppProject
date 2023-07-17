@@ -2,6 +2,7 @@ package pl.example.myapplication.ui.przychod
 
 import android.content.ContentValues
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +39,6 @@ class PrzychodFragment : Fragment() {
         return binding.root
     }
 
-
     private fun handleButtonPrzychodClick() {
         databaseHelper = DatabaseHelper(requireContext())
 
@@ -63,7 +63,7 @@ class PrzychodFragment : Fragment() {
             textFieldKwota.text.clear()
             textFieldNotka.text.clear()
         } else {
-            textView2?.text = "wpisz coś ziomek"
+            textView2.text = "Wymagane jest podanie kwoty!"
         }
 
 
@@ -85,8 +85,14 @@ class PrzychodFragment : Fragment() {
             for (column in columns) {
                 val textView = TextView(requireContext())
                 textView.text = column
-                textView.setPadding(10, 10, 200, 10)
+                textView.setPadding(10, 10, 10, 10)
                 textView.textSize = 17f
+                textView.gravity = Gravity.CENTER
+
+                val params = TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f)
+                params.setMargins(0, 20, 0, 20)
+                textView.layoutParams = params
+
                 row.addView(textView)
             }
 
@@ -94,7 +100,7 @@ class PrzychodFragment : Fragment() {
         }
     }
 
-    fun displayListPrzychod(): List<String> {
+    private fun displayListPrzychod(): List<String> {
         val recordsList = ArrayList<String>()
         val db = databaseHelper.readableDatabase
         val selectQuery =

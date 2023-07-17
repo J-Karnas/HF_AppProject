@@ -33,7 +33,7 @@
             android:autofillHints=""
             android:hint="Kwota"
             android:inputType="numberDecimal"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textSize="26sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tytulPrzychod" />
@@ -59,7 +59,7 @@
             android:autofillHints=""
             android:hint="Notatka"
             android:inputType="text"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tytulPrzychod" />
@@ -88,23 +88,22 @@
             app:layout_constraintTop_toBottomOf="@+id/btnPrzychod" />
 
         <TableLayout
-            android:id="@+id/tabelaWplaty"
+            android:id="@+id/tabelaWplaty2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:padding="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/wyswietlWplaty">
 
             <TableRow
+                android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/wyswietlWplaty">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Kwota"
                     android:textAlignment="center"
@@ -113,7 +112,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
+                    android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Data"
                     android:textAlignment="center"
@@ -122,13 +121,30 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="4"
+                    android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Notatka"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 
             </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/tabelaWplaty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/tabelaWplaty2"
+            tools:layout_editor_absoluteX="-16dp">
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/tabelaWplaty"
+                app:layout_constraintTop_toBottomOf="@+id/tabelaWplaty2" />
+
         </TableLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package pl.example.myapplication.ui.historia
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,8 @@ class HistoriaFragment : Fragment() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerKategoria.adapter = adapter
 
+        spinnerKategoria.setPadding(10,10, 10, 10)
+
         historiaLista("Żywność", "test")
         addButton.setOnClickListener {
             val selectedDate = spinnerKategoria.selectedItem as String
@@ -60,8 +63,8 @@ class HistoriaFragment : Fragment() {
 
             val columns = record.split(" - ")
 
-            val firstValue = columns.firstOrNull()
-
+//            val firstValue = columns.firstOrNull()
+//
 //            if (firstValue != null && firstValue.startsWith("-")) {
 //                row.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.minus))
 //            } else {
@@ -71,8 +74,13 @@ class HistoriaFragment : Fragment() {
             for (column in columns) {
                 val textView = TextView(requireContext())
                 textView.text = column
-                textView.setPadding(8, 8, 150, 8)
+                textView.setPadding(10, 10, 10, 10)
                 textView.textSize = 17f
+                textView.gravity = Gravity.CENTER
+
+                val params = TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f)
+                params.setMargins(0, 20, 0, 20)
+                textView.layoutParams = params
 
                 row.addView(textView)
             }
@@ -84,7 +92,7 @@ class HistoriaFragment : Fragment() {
     fun displayListaHistoria(kategoria1: String, mode1: String): List<String> {
         val recordsList = ArrayList<String>()
         val db = databaseHelper.readableDatabase
-        var selectQuery =
+        val selectQuery =
             "SELECT dane.kwota, dane.data_time, dane.notatka FROM dane INNER JOIN kategoria ON dane.id_kategoria=kategoria.id_kategoria  WHERE kategoria.nazwa_kat= '$kategoria1' ORDER BY id_dane DESC LIMIT 30"
 //        val selectQuery2 = "SELECT dane.kwota, dane.data_time, dane.notatka FROM dane INNER JOIN kategoria ON dane.id_kategoria=kategoria.id_kategoria  WHERE dane.id_kategoria != 11 LIMIT 30"
 //        val selectQuery3 = "SELECT dane.kwota, dane.data_time, dane.notatka FROM dane INNER JOIN kategoria ON dane.id_kategoria=kategoria.id_kategoria LIMIT 30"
@@ -101,7 +109,7 @@ class HistoriaFragment : Fragment() {
                 val column2 = cursor.getString(cursor.getColumnIndexOrThrow("data_time"))
                 val column3 = cursor.getString(cursor.getColumnIndexOrThrow("notatka"))
 
-                val record = "$column1 - $column2 - $column3"
+                val record = "$column1 PLN - $column2 - $column3"
                 recordsList.add(record)
             } while (cursor.moveToNext())
         }

@@ -1,10 +1,12 @@
 package pl.example.myapplication.ui.statystyki
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.marginStart
 import androidx.fragment.app.Fragment
 import pl.example.myapplication.DatabaseHelper
 import pl.example.myapplication.R
@@ -33,6 +35,8 @@ class StatystykiFragment : Fragment() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerStatystyki.adapter = adapter
 
+        spinnerStatystyki.setPadding(10,10, 10, 10)
+
         statystykiLista("1")
         addButton.setOnClickListener {
             val selectedDate = spinnerStatystyki.selectedItem as String
@@ -59,8 +63,14 @@ class StatystykiFragment : Fragment() {
             for (column in columns) {
                 val textView = TextView(requireContext())
                 textView.text = column
-                textView.setPadding(8, 8, 250, 8)
+                textView.setPadding(10, 10, 10, 10)
                 textView.textSize = 17f
+                textView.gravity = Gravity.CENTER
+
+                val params = TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f)
+                params.setMargins(0, 20, 0, 20)
+                textView.layoutParams = params
+
                 row.addView(textView)
             }
 
@@ -68,7 +78,7 @@ class StatystykiFragment : Fragment() {
         }
     }
 
-    fun displayListaStatystyki(mies1: String): List<String> {
+    private fun displayListaStatystyki(mies1: String): List<String> {
         val recordsList = ArrayList<String>()
         val db = databaseHelper.readableDatabase
         val selectQuery =
@@ -80,7 +90,7 @@ class StatystykiFragment : Fragment() {
                 val column2 = cursor.getString(cursor.getColumnIndexOrThrow("procent"))
                 val column3 = cursor.getString(cursor.getColumnIndexOrThrow("nazwa_kat"))
 
-                val record = "$column1 - $column2% - $column3"
+                val record = "$column3 - $column1 PLN - $column2%"
                 recordsList.add(record)
             } while (cursor.moveToNext())
         }
