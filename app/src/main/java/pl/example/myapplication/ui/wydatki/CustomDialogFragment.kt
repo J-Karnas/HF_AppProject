@@ -3,8 +3,6 @@ package pl.example.myapplication.ui.wydatki
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.ContentValues
-import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
@@ -14,13 +12,16 @@ import androidx.fragment.app.DialogFragment
 import pl.example.myapplication.DatabaseHelper
 import pl.example.myapplication.R
 import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
+import java.util.*
 
-class CustomDialogFragment : DialogFragment(){
+class CustomDialogFragment : DialogFragment() {
 
     private lateinit var databaseHelper: DatabaseHelper
 
+    private lateinit var wydatkiFragment: WydatkiFragment
+    fun setWydatkiFragment(fragment: WydatkiFragment) {
+        wydatkiFragment = fragment
+    }
 
     private fun addDane(kwota: Double, date: String, notatka: String, kategoria: Int) {
         val daneValues = ContentValues()
@@ -54,6 +55,11 @@ class CustomDialogFragment : DialogFragment(){
                 val currentDate = Date()
                 val dateFormat = SimpleDateFormat("YYYY-MM-dd", Locale.getDefault())
                 addDane(kwota, dateFormat.format(currentDate), note, buttonId)
+
+
+                wydatkiFragment.displayAmount()
+
+
                 textView.text = ""
                 dismiss()
             } else {

@@ -26,15 +26,17 @@
 
         <EditText
             android:id="@+id/inputKwota"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:autofillHints=""
             android:hint="Kwota"
             android:inputType="numberDecimal"
             android:padding="15dp"
             android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tytulPrzychod" />
 
@@ -52,29 +54,32 @@
 
         <EditText
             android:id="@+id/inputNotka"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:autofillHints=""
             android:hint="Notatka"
             android:inputType="text"
+            android:maxWidth="250dp"
             android:padding="15dp"
             android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tytulPrzychod" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputKwota" />
 
         <Button
             android:id="@+id/btnPrzychod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="30dp"
             android:padding="10dp"
             android:text="Dodaj"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tytulPrzychod" />
+            app:layout_constraintTop_toBottomOf="@+id/inputNotka" />
 
         <TextView
             android:id="@+id/wyswietlWplaty"

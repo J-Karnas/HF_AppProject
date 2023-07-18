@@ -7,22 +7,16 @@
 
     <string-array name="kategorie_array">
         <item>Żywność</item>
-        <item>mieszkanie</item>
-        <item>transport</item>
-        <item>odzież</item>
-        <item>prezenty</item>
-        <item>rozwój</item>
-        <item>zdrowie</item>
-        <item>rozrywka</item>
-        <item>technologia</item>
-        <item>inne</item>
-        <item>przychód</item>
-    </string-array>
-
-    <string-array name="mode_array">
-        <item>wszystko</item>
-        <item>mieszkanie</item>
-        <item>transport</item>
+        <item>Mieszkanie</item>
+        <item>Transport</item>
+        <item>Odzież</item>
+        <item>Prezenty</item>
+        <item>Rozwój</item>
+        <item>Zdrowie</item>
+        <item>Rozrywka</item>
+        <item>Technologia</item>
+        <item>Inne</item>
+        <item>Przychód</item>
     </string-array>
 
     <string-array name="statystyki_miesiac">

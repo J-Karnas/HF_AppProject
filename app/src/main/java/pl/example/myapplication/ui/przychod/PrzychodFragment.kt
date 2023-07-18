@@ -113,7 +113,7 @@ class PrzychodFragment : Fragment() {
                 val column2 = cursor.getString(cursor.getColumnIndexOrThrow("data_time"))
                 val column3 = cursor.getString(cursor.getColumnIndexOrThrow("notatka"))
 
-                val record = "$column1 - $column2 - $column3"
+                val record = "$column1 PLN - $column2 - $column3"
                 recordsList.add(record)
             } while (cursor.moveToNext())
         }

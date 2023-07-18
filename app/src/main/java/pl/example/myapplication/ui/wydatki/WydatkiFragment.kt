@@ -1,7 +1,6 @@
 package pl.example.myapplication.ui.wydatki
 
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,7 @@ import androidx.fragment.app.FragmentManager
 import pl.example.myapplication.DatabaseHelper
 import pl.example.myapplication.databinding.FragmentWydatkiBinding
 
-class WydatkiFragment : Fragment(){
+class WydatkiFragment : Fragment() {
 
     private var _binding: FragmentWydatkiBinding? = null
     private val binding get() = _binding!!
@@ -92,7 +91,7 @@ class WydatkiFragment : Fragment(){
         return binding.root
     }
 
-    private fun displayAmount() {
+    fun displayAmount() {
         val selectQuery = "SELECT ROUND(SUM(kwota), 2) as saldo FROM dane"
         val cursor = databaseHelper.readableDatabase.rawQuery(selectQuery, null)
 
@@ -109,6 +108,7 @@ class WydatkiFragment : Fragment(){
     private fun showDialog(buttonId: Int, name: String) {
         val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
         val dialogFragment = CustomDialogFragment()
+        dialogFragment.setWydatkiFragment(this)
         val bundle = Bundle()
         bundle.putInt("buttonId", buttonId)
         bundle.putString("name", name)

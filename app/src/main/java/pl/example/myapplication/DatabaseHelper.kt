@@ -23,16 +23,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "homefinances
 
         val insertKategoria = "INSERT INTO `kategoria` (`id_kategoria`, `nazwa_kat`) VALUES" +
                 "(1, 'Żywność')," +
-                "(2, 'mieszkanie')," +
-                "(3, 'transport')," +
-                "(4, 'odzież')," +
-                "(5, 'prezenty')," +
-                "(6, 'rozwój')," +
-                "(7, 'zdrowie')," +
-                "(8, 'rozrywka')," +
-                "(9, 'technologia')," +
-                "(10, 'inne')," +
-                "(11, 'przychód')"
+                "(2, 'Mieszkanie')," +
+                "(3, 'Transport')," +
+                "(4, 'Odzież')," +
+                "(5, 'Prezenty')," +
+                "(6, 'Rozwój')," +
+                "(7, 'Zdrowie')," +
+                "(8, 'Rozrywka')," +
+                "(9, 'Technologia')," +
+                "(10,'Inne')," +
+                "(11,'Przychód')"
         db?.execSQL(insertKategoria)
     }
 
